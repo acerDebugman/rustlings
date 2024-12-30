@@ -8,7 +8,7 @@
 // to insert any more of the fruits that are already in the basket (Apple,
 // Mango, and Lychee).
 
-use std::collections::HashMap;
+use std::collections::{btree_map::VacantEntry, HashMap};
 
 #[derive(Hash, PartialEq, Eq, Debug)]
 enum Fruit {
@@ -32,6 +32,13 @@ fn fruit_basket(basket: &mut HashMap<Fruit, u32>) {
         // TODO: Insert new fruits if they are not already present in the
         // basket. Note that you are not allowed to put any type of fruit that's
         // already present!
+        // match basket.entry(fruit) {
+        //     std::collections::hash_map::Entry::Occupied(_) => continue,
+        //     std::collections::hash_map::Entry::Vacant(v) => v.insert(3),
+        // };
+        if let std::collections::hash_map::Entry::Vacant(v) = basket.entry(fruit) {
+            v.insert(3);
+        }
     }
 }
 
