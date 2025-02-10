@@ -7,7 +7,10 @@ fn maybe_icecream(hour_of_day: u16) -> Option<u16> {
     if hour_of_day < 22 {
         return Some(5)
     }
-    return None
+    if hour_of_day > 23 {
+        return None
+    }
+    return Some(0)
 }
 
 fn main() {
